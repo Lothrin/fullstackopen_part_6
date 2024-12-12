@@ -1,6 +1,5 @@
 import { createSlice, current } from '@reduxjs/toolkit'
 
-
 const anecdotesAtStart = [
   'If it hurts, do it more often',
   'Adding manpower to a late software project makes it later!',
@@ -36,6 +35,7 @@ const anecdoteSlice = createSlice({
     },
 
     voteAnecdote(state, action) {
+
       const id = action.payload;
       const anecdoteToVote = state.find(a => a.id === id);
       // console.log(initialState)
@@ -48,9 +48,12 @@ const anecdoteSlice = createSlice({
         };
     
         console.log(current(state)); 
+
         
         return state.map(anecdote =>
           anecdote.id !== id ? anecdote : votedAnecdote
+
+          
         );
       }
       console.warn(`Anecdote with id ${id} not found.`);
