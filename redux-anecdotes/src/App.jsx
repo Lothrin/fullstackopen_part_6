@@ -10,14 +10,13 @@ import store from "./store";
 import anecdoteReducer, {
   appendAnecdote,
   setAnecdotes,
+  initializeAnecdotes,
 } from "./reducers/anecdoteReducer";
 
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    anecdoteService
-      .getAll()
-      .then((anecdotes) => dispatch(setAnecdotes(anecdotes)));
+    dispatch(initializeAnecdotes());
   }, []);
 
   return (
